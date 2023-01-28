@@ -14,12 +14,18 @@
          * 
          * contexto promisses
          **/
+        let resposta = {}
         let promise = new Promise((resolve, reject) => {
             try {
                 //forcar erro
-                throw new Error("Opa ouve um erro!");
+                //throw new Error("Opa ouve um erro!");
                 setTimeout(() => {
-                    resolve("promisses concluida com sucess")
+                    resposta = {
+                        dados: {
+                            mensagem: "Recuperamos os dados com sucesso"
+                        }
+                    }
+                    resolve("sucess")
                 }, 3000)
             } catch (e) {
                 setTimeout(() => {
@@ -30,6 +36,7 @@
         console.log(promise)
         setTimeout(() => {
             console.log(promise)
+            console.log(resposta)
         }, 3000)
     </script>
 
