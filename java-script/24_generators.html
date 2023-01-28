@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generators</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 
+         * contexto Generators
+         **/
+        function* conversar() {
+            let opcao = yield 'Eai tudo bem'
+            if (opcao == 'sim') {
+                yield 'Otimo fico feliz'
+                opcao = yield 'Como eu posso lhe ajudar? quer uma piada ?'
+                if (opcao == 'sim') {
+
+                } else {
+                    yield 'Digite 1 para compras 2 para vendas ou 3 para falar com atendente '
+                }
+            } else {
+                yield 'Respire fundo'
+                yield 'Digite 1 para compras 2 para vendas ou 3 para falar com atendente '
+            }
+        }
+        let conversa = conversar()
+
+        function acao() {
+            let resposta = document.getElementById('resposta').value
+            console.log(resposta)
+            let iteracao = conversa.next(resposta)
+            console.log(iteracao)
+        }
+    </script>
+
+    <div id='teste'>
+        <button type='button' onclick='acao()'>Avancar</button> Resposta: <input type='text' id='resposta'>
+    </div>
+</body>
+
+</html>
