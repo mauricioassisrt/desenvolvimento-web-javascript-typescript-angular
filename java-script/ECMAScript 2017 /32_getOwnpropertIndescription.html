@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>object values</title>
+</head>
+
+<body>
+    <script>
+        let objeto = {
+            nome: "prof",
+            profissional: {
+                site: "teste",
+                profissao: 'programador'
+            },
+            hobbies: [{
+                id: 1,
+                hobby: 'jogar bola'
+            }, {
+                id: 1,
+                hobby: 'jogar bola'
+            }],
+            pais: 'brasil'
+
+        }
+
+        /** metadados descritores 
+        console.log(Object.getOwnPropertyDescriptors(objeto))
+            // wrietable definido como falso  indica que o falor da propriedade nao poderá ser modificada
+        Object.defineProperty(objeto, 'nome', {
+            value: 'Jorge',
+            writable: false
+        })
+
+        console.log(Object.getOwnPropertyDescriptors(objeto))
+
+      
+        //descritor enummable a propriade não é exibida em laços de repetição
+        for (let propriedade in objeto) {
+            console.log(propriedade, objeto[propriedade])
+
+        }
+
+        Object.defineProperty(objeto, 'hobbies', {
+            enumerable: false
+        })
+        Object.defineProperty(objeto, 'profissional', {
+            enumerable: false
+        })
+        console.log(Object.getOwnPropertyDescriptors(objeto))
+        console.log('--------------------------------')
+        for (let propriedade in objeto) {
+            console.log(propriedade, objeto[propriedade])
+
+        }
+          **/
+        ///configurable = false indica que a propriedade nao pode ser deletada e também nao pode modificar os decritores
+        ///exeto writeble false 
+        Object.defineProperty(objeto, 'pais', {
+            configurable: false
+        })
+
+        console.log(Object.getOwnPropertyDescriptors(objeto))
+    </script>
+</body>
+
+</html>
