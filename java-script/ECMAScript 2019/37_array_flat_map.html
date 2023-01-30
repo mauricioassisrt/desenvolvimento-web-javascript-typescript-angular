@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>array flat map</title>
+</head>
+
+<body>
+    <script>
+        let nome = [
+            'Maria, joana',
+            'joão, maran',
+            'juan',
+            'mari'
+        ]
+        let nomesMap = nome.map(item => {
+            return item.split(',')
+        })
+        console.log(nomesMap)
+
+
+        let nomesFlatMap = nome.flatMap(item => {
+            return item.split(',')
+        })
+        console.log(nomesFlatMap)
+    </script>
+</body>
+
+</html>
