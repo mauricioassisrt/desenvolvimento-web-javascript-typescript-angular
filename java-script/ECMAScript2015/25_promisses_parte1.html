@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promisses</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 
+         * contexto promisses
+         **/
+        let resposta = {}
+        let promise = new Promise((resolve, reject) => {
+            try {
+                //forcar erro
+                //throw new Error("Opa ouve um erro!");
+                setTimeout(() => {
+                    resposta = {
+                        dados: {
+                            mensagem: "Recuperamos os dados com sucesso"
+                        }
+                    }
+                    resolve("sucess")
+                }, 3000)
+            } catch (e) {
+                setTimeout(() => {
+                    reject(e)
+                }, 3000)
+            }
+        })
+        console.log(promise)
+        setTimeout(() => {
+            console.log(promise)
+            console.log(resposta)
+        }, 3000)
+    </script>
+
+
+</body>
+
+</html>

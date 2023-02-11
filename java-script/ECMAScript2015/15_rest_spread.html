@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default parameters</title>
+</head>
+
+<body>
+    <div id="historia"></div>
+    <script>
+        /**
+         * rest spread -> utilizado para expandir arrays objetos etc 
+         */
+        // como expandir string
+        let tituloArtigo = "como utilizar rest/spread"
+        console.log(tituloArtigo)
+        console.log(...tituloArtigo)
+        console.log([...tituloArtigo])
+        console.log({...tituloArtigo
+        })
+
+
+        //array
+
+        let arrayListCurso = ["Node", "angular"]
+
+        let listaCurso2 = ['Solid', 'Laravel']
+        let listaCompletaCursos = [
+            'Web Completo',
+            'Banco de dados', ...listaCurso2, ...arrayListCurso
+        ]
+
+        console.log(listaCompletaCursos)
+
+        // objetos 
+        let pessoa = {
+            nome: 'Pedro',
+            idade: '32'
+        }
+        let cadastroCompleto = {
+            ...pessoa,
+            endereco: 'Rua abc',
+
+        }
+
+        console.log(cadastroCompleto)
+    </script>
+</body>
+
+</html>

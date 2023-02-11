@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>From entries</title>
+</head>
+
+<body>
+    <script>
+        class Carro {
+            constructor(marca, modelo, ano) {
+                this.modelo = modelo;
+                this.ano = ano
+                this.marca = marca
+            }
+            toString() {
+                return `Carro da marca ${this.marca}, e ano ${this.ano} e modelo ${this.modelo} ${this.modeo}`
+            }
+        }
+        let carro = new Carro('Mercedes', 'CL 180', '1990')
+        console.log(carro.toString())
+    </script>
+</body>
+
+</html>

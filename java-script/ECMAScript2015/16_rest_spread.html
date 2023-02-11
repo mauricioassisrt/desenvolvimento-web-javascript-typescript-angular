@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest spread</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 
+         * contexto rest
+         
+
+        function soma(...param) {
+            let resultado = 0
+            console.log(param)
+            param.forEach(element => resultado += element)
+            return resultado
+        }
+        console.log(soma(1, 2, 3))
+
+**/
+        function mult(m, ...n) {
+            let resultado = 0;
+            n.forEach(v => resultado += m * v)
+            return resultado
+        }
+        let y = mult(12, 9, 92)
+        console.log(y)
+    </script>
+</body>
+
+</html>

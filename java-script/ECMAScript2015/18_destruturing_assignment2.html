@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>destruturing parte 2</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 
+         * contexto destruturing assgnment no contexot objet
+         **/
+
+         let produto ={
+            descricao:'Notebook',
+            preco: 2000,
+            detalhes:{
+                fabricante :"dell",
+                modelo:4555
+            }
+         }
+         // quando fala de objtos utilizamos chaves 
+
+         let {descricao, preco}= produto
+         console.log(descricao,preco)
+        //nomer variaveis com outros nomes
+         let {descricao:d, preco:p}= produto
+         console.log(d, p)
+         //default para lidar com atributos undefined 
+
+         let {descricao:desc, preco:pre=0, desconto=5}= produto
+        console.log(d, p, desconto)
+
+        // extrair atributos de objetos pertencentes a atributos do objetos
+        let {descricao:des, detalhes:{fabricante}}=produto
+        console.log(des, fabricante)
+    </script>
+</body>
+
+</html>

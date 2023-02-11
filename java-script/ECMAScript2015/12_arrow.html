@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow</title>
+</head>
+<body>
+    <script>
+        //arrow function 
+        let multiplicar = function(){
+            return 4*5
+        }
+       // varios parametros
+        let multiplicador=(n,m)=>{
+            return n*m
+        }
+        //1 parametro
+        let somar=n=>{
+            return n*n
+        }
+        // 1 unico parametros
+        console.log(multiplicador(5,5))
+        //2 parametros 
+        console.log(somar(4, 5))
+
+        // quando é um  unico parametro pode-se simplificar 
+        let sub = n=>n-n;
+
+        console.log(sub(10))
+
+        // quando é mais de 1 parametros 
+        let subs=(n,m) => n-m
+
+        console.log(subs(21,23))
+        // sem arrowfuncition
+        let parOuImpar= function(n){
+            if(n%2===0)
+                return "par"
+            else 
+                return "impar"
+        }
+
+        console.log(parOuImpar(2))
+        //arrow function sem chaves nos ifs
+        let parOuImparArrow=n=>{
+            if(n%2===0)
+                return "par"
+            else 
+                return "impar"
+        }
+        console.log("arrrow",parOuImpar(3))
+        // arrow function com ternario 
+        let parOuImparArrowTernario=n=>n%2===0 ? 'par': 'impar'
+        console.log("ternario", parOuImparArrowTernario(2))
+        
+    </script>
+</body>
+</html>
