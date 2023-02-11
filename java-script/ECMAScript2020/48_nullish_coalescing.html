@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>
+            Titulo
+        </title>
+    </head>
+    <body>
+        <script>
+            // testando com o peradorlogico or
+            let teste1 = null || 'Valor direita'
+
+            let teste2 = 0 || 'Valor direita'
+            
+            let teste3 = undefined || 'Valor direita'
+            
+            let teste4 = "" || 'Valor direita'
+            
+            let teste5 = "Valor esquerda" || 'Valor direita'
+            
+            console.log(teste1);
+            console.log(teste2);
+            console.log(teste3);
+            console.log(teste4);
+            console.log(teste5);
+
+            console.log('-----------------------------------')
+
+             teste1 = null ?? 'Valor direita'
+
+             teste2 = 0 ?? 'Valor direita'
+
+             teste3 = undefined ?? 'Valor direita'
+
+             teste4 = "" ?? 'Valor direita'
+
+             teste5 = "Valor esquerda" ?? 'Valor direita'
+
+            console.log(teste1);
+            console.log(teste2);
+            console.log(teste3);
+            console.log(teste4);
+            console.log(teste5);
+        </script>
+    </body>
+</html>

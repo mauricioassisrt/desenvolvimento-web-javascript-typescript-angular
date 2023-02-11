@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btnSaudacao">Saudação</button>
+    <hr>
+    <input type="text" id="cep">
+    <button id="btnCep">Cep</button>
+    <script type="module">
+        import { saudacao, getEnderecoByCEP } from './import/lib.min.js'; document.querySelector('#btnSaudacao').addEventListener('click', () => { console.log(saudacao()) }); document.querySelector('#btnCep').addEventListener('click', () => { let cep = document.querySelector('#cep').value
+        if (cep.length == 8) { getEnderecoByCEP('87701020').then(dados => console.log(dados)) } })
+    </script>
+</body>
+
+</html>
