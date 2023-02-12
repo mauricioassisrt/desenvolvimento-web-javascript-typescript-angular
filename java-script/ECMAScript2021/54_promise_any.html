@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+<body>
+    
+</body>
+<script>
+    const p1 = new Promise((resolve, reject)=>{
+        setTimeout(()=> resolve('p1 resolvida'), 3000)
+    })
+    
+    const p2 = new Promise((resolve, reject)=>{
+        setTimeout(()=> resolve('p2 resolvida'), 5000)
+    })
+    
+    const p3 = new Promise((resolve, reject)=>{
+        setTimeout(()=> resolve('p3 resolvida'), 7000)
+    })
+
+    Promise.any([p1, p2, p3])
+        .then((resolvida)=>{
+            console.log(resolvida)
+        })
+</script>
+</html>
