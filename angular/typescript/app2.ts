@@ -25,9 +25,10 @@ class Concessionaria {
     private listaCarros: any
 
     public fornecerEndereco(): string { 
-        return this.endereco?
+        return this.endereco
     }
     public mostrarListaCarros(): any { 
         return
     }
+
 }
