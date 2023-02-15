@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>dynamic import</title>
+</head>
+
+<body>
+    <button id="saudacao"> Saudação</button>
+    <hr>
+    <input type="text" id='cep' placeholder="cep">
+    <button id="btnCep"> Consultar CEP</button>
+    <script type="module">
+        import {saudacao,getEnderecoByCEP} from './import/lib.min.js'; document.querySelector('#saudacao').addEventListener('click', ()=>{ console.log(saudacao()) }); document.querySelector('#btnCep').addEventListener('click', ()=>{ let cep = document.querySelector('#cep').value
+        if(cep.legth==8){ getEnderecoByCEP('87701020').then(dados=>console.log(dados)) } ) })
+
+    </script>
+</body>
+
+</html>

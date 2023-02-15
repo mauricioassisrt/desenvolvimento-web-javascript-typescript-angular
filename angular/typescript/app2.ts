@@ -20,7 +20,14 @@ class Carro {
     }
 }
 
-let carroA = new Carro('Gol', 4, 200)
-console.log(carroA)
-carroA.acelerar()
-console.log(carroA)
+class Concessionaria {
+    private endereco?: string
+    private listaCarros: any
+
+    public fornecerEndereco(): string { 
+        return this.endereco?
+    }
+    public mostrarListaCarros(): any { 
+        return
+    }
+}
