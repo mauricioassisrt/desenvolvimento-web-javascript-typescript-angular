@@ -14,11 +14,11 @@ console.log(pessoa.dizerCarroPreferido())
 
 // criar carros
 
-let carroA = new Carro("Dodge", 4, 120)
+let carroA = new Carro("Dodge", 4, )
 
-let carroB = new Carro("fusca", 2, 60)
+let carroB = new Carro("fusca", 2, )
 
-let carroC = new Carro("Fiat", 4, 120)
+let carroC = new Carro("Fiat", 4, )
 
 
 let listaCarros: Carro[] = [carroA, carroB, carroC]

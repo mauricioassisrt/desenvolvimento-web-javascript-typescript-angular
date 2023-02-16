@@ -1,20 +1,14 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-class Carro {
-    constructor(modelo, numeroPortas, velocidade) {
-        this.velocidade = 0;
-        this.modelo = modelo;
-        this.velocidade = velocidade;
+const Veiculo_1 = __importDefault(require("./Veiculo"));
+class Carro extends Veiculo_1.default {
+    constructor(modelo, numeroPortas) {
+        super();
         this.numeroPortas = numeroPortas;
-    }
-    acelerar() {
-        this.velocidade = this.velocidade + 10;
-    }
-    parar() {
-        this.velocidade = 0;
-    }
-    velocidadeAtual() {
-        return this.velocidade;
+        this.modelo = modelo;
     }
 }
 exports.default = Carro;
