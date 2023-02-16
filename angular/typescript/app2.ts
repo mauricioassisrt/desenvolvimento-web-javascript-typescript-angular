@@ -9,7 +9,7 @@ import  Concessionaria from './Concessionaria'
 
 
 
-let pessoa = new Pessoa('JosÃ© ', 'Veloster')
+let pessoa = new Pessoa('José ', 'Veloster')
 console.log(pessoa.dizerCarroPreferido())
 
 // criar carros

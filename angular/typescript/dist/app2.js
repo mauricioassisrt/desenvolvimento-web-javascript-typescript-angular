@@ -10,7 +10,7 @@ const Concessionaria_1 = __importDefault(require("./Concessionaria"));
 // console.log(carroA)
 // carroA.acelerar()
 // console.log(carroA)
-let pessoa = new Pessoa_1.default('José ', 'Veloster');
+let pessoa = new Pessoa_1.default('Jos� ', 'Veloster');
 console.log(pessoa.dizerCarroPreferido());
 // criar carros
 let carroA = new Carro_1.default("Dodge", 4, 120);
