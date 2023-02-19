@@ -9,16 +9,16 @@ import  Concessionaria from './Concessionaria'
 
 
 
-let pessoa = new Pessoa('José ', 'Veloster')
+let pessoa = new Pessoa('Josï¿½ ', 'Veloster')
 console.log(pessoa.dizerCarroPreferido())
 
 // criar carros
 
-let carroA = new Carro("Dodge", 4, )
+let carroA = new Carro("Dodge", 4 )
 
-let carroB = new Carro("fusca", 2, )
+let carroB = new Carro("fusca", 2 )
 
-let carroC = new Carro("Fiat", 4, )
+let carroC = new Carro("Fiat", 4 )
 
 
 let listaCarros: Carro[] = [carroA, carroB, carroC]

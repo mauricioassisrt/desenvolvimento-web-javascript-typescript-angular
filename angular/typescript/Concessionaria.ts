@@ -1,6 +1,7 @@
 import Carro from "./Carro"
+import { IConcessionaria } from "./IConcessionaria"
 
-export default class Concessionaria{
+export default class Concessionaria implements IConcessionaria{
     private endereco: string =''
     private listaDeCarros: any
     constructor (endereco:string, listaCarros:Array<Carro>){
@@ -13,5 +14,8 @@ export default class Concessionaria{
     }
     public mostrarListaDeCarros(): Array<Carro> {
         return this.listaDeCarros
+    }
+    public fornecerHorarioFuncionamento(): string {
+        return 'Seg a sex das 8h as 18 e sab das 8 as 13'
     }
 }

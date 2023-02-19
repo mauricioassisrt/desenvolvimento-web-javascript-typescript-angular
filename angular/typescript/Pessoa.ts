@@ -2,7 +2,7 @@ import Carro from "./Carro"
 export default class Pessoa {
     private nome?: string
     private carroPreferido?: string
-    private carro: Carro
+    private carro?: Carro 
     constructor(nome: string, carro: string ){
         this.nome = nome 
         this.carroPreferido = carro
@@ -15,7 +15,7 @@ export default class Pessoa {
        return this.carroPreferido!!
     }
 
-    public comprarCarro(carro:Carro): void {
+    public comprarCarro(carro:Carro): Carro {
         return this.carro = carro
     }
     public dizerCarroTem(): Carro{
