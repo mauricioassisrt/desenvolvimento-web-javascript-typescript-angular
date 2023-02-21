@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
 
 @Component({
-    selector: 'app-topo',
+    //selector: '[app-topo]',
+    selector: '.app-topo',
     templateUrl: './topo.component.html',
     //template: '<p> teste no template<p>'
     //styles: ['.exemplo{ color: red }']
