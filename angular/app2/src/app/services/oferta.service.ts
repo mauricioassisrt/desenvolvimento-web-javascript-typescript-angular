@@ -65,6 +65,12 @@ export class OfertaService {
     })
     .then((ofertas: Oferta[]) => {
       console.log("primeiro thens")
+      return new Promise((resolve2, reject)=>{
+        setTimeout(()=> { resolve2( ofertas )},3000)
+      })
+    })
+    .then(( ofertas: Oferta[]) =>{
+      console.log("2 then agurandando a promisse antiga")
       return ofertas
     })
   }
