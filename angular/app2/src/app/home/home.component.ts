@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OfertaService} from "../services/oferta.service";
 import {Oferta} from "../../shared/ofertas.model";
+import {of} from "rxjs/observable/of";
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,13 @@ export class HomeComponent implements OnInit {
   constructor(private ofertaService: OfertaService) { }
 
   ngOnInit() {
-    this.ofertas = this.ofertaService.getOfertas()
-    console.log(this.ofertas)
+    // this.ofertas = this.ofertaService.getOfertas()
+    // console.log(this.ofertas)
+    this.ofertaService.getOfertas2()
+      .then((ofertas: Oferta[] ) => {
+        console.log("Aaqqqq")
+        this.ofertas = ofertas
+      })
   }
 
 }
