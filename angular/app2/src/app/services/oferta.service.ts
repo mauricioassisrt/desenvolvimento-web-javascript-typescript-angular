@@ -57,11 +57,15 @@ export class OfertaService {
   public getOfertas2(): Promise<Oferta[]>{
     return new Promise((resolve , reject)=>{
       let deu_certo = true
-      if(deu_certo) {
-        resolve(this.ofertas)
-      }else{
+      if (deu_certo) {
+        setTimeout(() => resolve(this.ofertas), 3000)
+      } else {
         reject({codigo_erro: 404, mensagem_erro: "not found"})
       }
+    })
+    .then((ofertas: Oferta[]) => {
+      console.log("primeiro thens")
+      return ofertas
     })
   }
 }
