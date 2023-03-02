@@ -9,4 +9,5 @@ export const ROUTES: Routes = [
   { path: 'restaurantes', component: RestaurantesComponent },
   { path: 'diversao', component: DiversaoComponent },
   { path: 'ofertas', component: OfertaComponent },
+  { path: 'ofertas/:id', component: OfertaComponent },
 ]
