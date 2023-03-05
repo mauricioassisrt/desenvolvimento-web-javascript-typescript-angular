@@ -10,6 +10,8 @@ import {RestaurantesComponent} from "./restaurantes/restaurantes.component";
 import {DiversaoComponent} from "./diversao/diversao.component";
 import {RouterModule} from "@angular/router";
 import { ROUTES } from "./app.routes";
+import { ComoUsarComponent } from './ofertas/como-usar/como-usar.component';
+import { OndeFicaComponent } from './ofertas/onde-fica/onde-fica.component';
 import {OfertaComponent} from "./ofertas/oferta.component";
 
 @NgModule({
@@ -20,6 +22,8 @@ import {OfertaComponent} from "./ofertas/oferta.component";
     RodapeComponent,
     RestaurantesComponent,
     DiversaoComponent,
+    ComoUsarComponent,
+    OndeFicaComponent,
     OfertaComponent
   ],
   imports: [
