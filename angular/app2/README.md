@@ -30,3 +30,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 play json json-server --watch banco-de-dados.json
 
+npx json-server --watch
+
