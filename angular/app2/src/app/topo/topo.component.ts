@@ -11,5 +11,7 @@ export class TopoComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  public pesquisa(event: Event): void {
+    console.log((<HTMLInputElement>event.target).value)
+  }
 }
