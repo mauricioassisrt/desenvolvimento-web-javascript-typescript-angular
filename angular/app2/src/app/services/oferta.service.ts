@@ -2,6 +2,7 @@ import {Oferta} from "../../shared/ofertas.model";
 import {Http} from "@angular/http";
 import {Injectable} from "@angular/core";
 import 'rxjs/add/operator/toPromise'
+import { Observable } from "rxjs";
 import {URL_API} from '../app.api';
 @Injectable()
 export class OfertaService {
@@ -36,5 +37,10 @@ export class OfertaService {
       .then((resposta:any) => {
         return resposta.json()[0].descricao
       })
+  }
+
+  public pesquisaOfertas(termo: string): Observable<Oferta[]> {
+    return this.http.get(`${URL_API}ofertas?descricao_oferta=${termo}`)
+    .map((resposta: any) => resposta.json())
   }
 }
