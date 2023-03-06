@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {OfertaService} from '../services/oferta.service';
 import {Oferta} from '../../shared/ofertas.model';
-
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx'
+import { Observer } from 'rxjs/Observer';
 @Component({
   selector: 'app-oferta',
   templateUrl: './oferta.component.html',
@@ -10,6 +12,7 @@ import {Oferta} from '../../shared/ofertas.model';
   providers: [OfertaService]
 })
 export class OfertaComponent implements OnInit {
+
   constructor(private route: ActivatedRoute,
               private ofertasService:OfertaService) {}
   public oferta: Oferta
@@ -18,11 +21,24 @@ export class OfertaComponent implements OnInit {
       .then(( oferta: Oferta) => {
           this.oferta = oferta
     })
-    this.route.params.subscribe(
+    /* this.route.params.subscribe(
       (parametro: any) => { console.log(parametro)},
       (error: any) => console.log(error),
-      () =>  console.log("processo concluido"))
+      () =>  console.log("processo concluido")) */
+      // let tempo = Observable.interval(2500)
 
+      // tempo.subscribe((intervalo: number) => {
+      //   console.log(intervalo)
+      // })
+      //observavel
+      let meuObservable = Observable.create((observer: Observer<string>)=>{
+        observer.next('Primeiro evento da stream')
+      })
+
+      /// observador
+      meuObservable.subscribe(
+        (resultado: any) => console.log(resultado)
+      )
   }
 
 }
