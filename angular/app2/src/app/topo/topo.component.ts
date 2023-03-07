@@ -32,6 +32,10 @@ export class TopoComponent implements OnInit {
       }
       return this.ofertaService.pesquisaOfertas(termo)
     })
+    .catch((err: any) => {
+      console.error(err)
+      return Observable.of<Oferta[]>([])
+    })
 
     this.ofertas.subscribe((ofertas: Oferta[]) =>  {
       console.log(ofertas)
