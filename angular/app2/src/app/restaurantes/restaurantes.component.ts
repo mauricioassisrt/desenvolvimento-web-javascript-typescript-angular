@@ -9,9 +9,11 @@ import {Oferta} from "../../shared/ofertas.model";
   providers: [ OfertaService ]
 })
 export class RestaurantesComponent implements OnInit {
+  public ofertas: Oferta[]
+  public dataTeste: any = new Date(2017, 8,  30)
 
   constructor(private ofertaService: OfertaService) { }
-  public ofertas: Oferta[]
+
   ngOnInit() {
     this.ofertaService.getOfertasPorCategoria('restaurante')
       .then((ofertas: Oferta[]) => {
