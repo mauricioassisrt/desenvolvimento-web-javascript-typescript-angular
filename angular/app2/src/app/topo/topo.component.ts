@@ -20,8 +20,10 @@ export class TopoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.ofertas = this.subjectPesquisa
     .debounceTime(1000)
+    .distinctUntilChanged()
     .switchMap((termo: string) => {
       console.log("requisicao HTTP")
 
@@ -34,6 +36,7 @@ export class TopoComponent implements OnInit {
     this.ofertas.subscribe((ofertas: Oferta[]) =>  {
       console.log(ofertas)
     })
+
   }
 
   public pesquisa(termoBusca: string): void {
