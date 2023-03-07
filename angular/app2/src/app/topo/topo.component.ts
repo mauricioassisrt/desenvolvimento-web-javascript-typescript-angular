@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
 export class TopoComponent implements OnInit {
 
   public ofertas: Observable<Oferta[]>
+  public ofertas2: Oferta[]
   private subjectPesquisa: Subject<string> = new Subject()
 
   constructor(
@@ -38,7 +39,7 @@ export class TopoComponent implements OnInit {
     })
 
     this.ofertas.subscribe((ofertas: Oferta[]) =>  {
-      console.log(ofertas)
+      this.ofertas2 = ofertas
     })
 
   }
