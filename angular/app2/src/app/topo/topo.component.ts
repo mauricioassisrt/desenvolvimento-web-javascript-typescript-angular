@@ -21,6 +21,7 @@ export class TopoComponent implements OnInit {
 
   ngOnInit() {
     this.ofertas = this.subjectPesquisa
+    .debounceTime(1000)
     .switchMap((termo: string) => {
       console.log("requisicao HTTP")
       return this.ofertaService.pesquisaOfertas(termo)
