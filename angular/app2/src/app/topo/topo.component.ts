@@ -24,6 +24,10 @@ export class TopoComponent implements OnInit {
     .debounceTime(1000)
     .switchMap((termo: string) => {
       console.log("requisicao HTTP")
+
+      if(termo.trim() === '') {
+        return Observable.of<Oferta[]>([])
+      }
       return this.ofertaService.pesquisaOfertas(termo)
     })
 
