@@ -5,6 +5,7 @@ import { DiversaoComponent } from "./diversao/diversao.component";
 import {OfertaComponent} from "./ofertas/oferta.component";
 import {ComoUsarComponent} from "./ofertas/como-usar/como-usar.component";
 import {OndeFicaComponent} from "./ofertas/onde-fica/onde-fica.component";
+import { OrdemCompraComponent } from "./ordem-compra/ordem-compra.component";
 
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent  },
@@ -17,4 +18,5 @@ export const ROUTES: Routes = [
       { path: 'como-usar', component: ComoUsarComponent },
       { path: 'onde-fica', component: OndeFicaComponent }
     ] },
+  { path: 'ordem-compra', component: OrdemCompraComponent}
 ]
