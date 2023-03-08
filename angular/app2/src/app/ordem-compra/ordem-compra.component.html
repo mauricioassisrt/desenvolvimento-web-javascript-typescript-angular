@@ -66,13 +66,27 @@
 
                 <div class="form-group col-md-6">
                     <input type="text" class="form-control {{ enderecoEstadoPrimitivo ? '' : (enderecoValido ? 'is-valid' : 'is-invalid') }}" placeholder="Endereço" #inputEndereco autocomplete="off" minlength="5" required [value]="endereco" (input)="atualizaEndereco(inputEndereco.value)">
-                    <div class="invalid-feedback">Endereço inválido</div>
+                    <div *ngIf="enderecoEstadoPrimitivo == false">
+                        <div *ngIf="enderecoValido; else msgEnderecoInvalido">
+                            <small class="form-text text-success">Ok</small>
+                        </div>
+                        <ng-template #msgEnderecoInvalido>
+                            <small class="form-text text-danger">Endereço Invalido</small>
+                        </ng-template>
+                    </div>
+
                 </div>
 
                 <div class="form-group col-md-2">
                     <input type="text" class="form-control {{  numeroEstadoPrimitivo ? '' :  (numeroValido ? 'is-valid' : 'is-invalid') }}" placeholder="Número" autocomplete="off" minlength="1" required [value]="numero" #inputNumero (input)="atualizaNumero(inputNumero.value)">
-                    <br />
-                    <small class="form-text text-muted">Ok</small>
+                    <div *ngIf="numeroEstadoPrimitivo == false">
+                        <div *ngIf="numeroValido; else msgNumeroInvalido">
+                            <small class="form-text text-success">Ok</small>
+                        </div>
+                        <ng-template #msgNumeroInvalido>
+                            <small class="form-text text-danger">Número Invalido</small>
+                        </ng-template>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
@@ -93,8 +107,15 @@
                       <option value="dinheiro" selected="{{ formaPagamento == 'dinheiro' ? 'selected' : ''}}">Dinheiro</option>
                       <option value="debito" selected="{{ formaPagamento == 'debito' ? 'selected' : ''}}">Débito</option>
                     </select>
+                    <div *ngIf="formaPagamentoEstadoPrimitivo == false">
+                        <div *ngIf="formaPagamentoValido; else msgFormaPagamentoInvalido">
+                            <small class="form-text text-success">Ok</small>
+                        </div>
+                        <ng-template #msgFormaPagamentoInvalido>
+                            <small class="form-text text-danger">Forma pagamento Invalido</small>
+                        </ng-template>
+                    </div>
 
-                    <div class="invalid-feedback">Selecione uma forma de pagamento</div>
                 </div>
             </div>
 
