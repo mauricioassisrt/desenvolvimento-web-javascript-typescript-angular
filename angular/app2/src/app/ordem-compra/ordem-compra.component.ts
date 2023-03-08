@@ -17,12 +17,11 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
   public complementoValido: boolean
   public numeroValido: boolean
   public formaPagamentoValido: boolean
-
   public enderecoEstadoPrimitivo: boolean = true
   public numeroEstadoPrimitivo: boolean = true
   public complementoEstadoPrimitivo: boolean = true
   public formaPagamentoEstadoPrimitivo: boolean = true
-
+  public formEstado: string = 'disabled'
 
   constructor() {}
 
@@ -41,6 +40,7 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
       this.enderecoValido = false
     }
     console.log(this.endereco)
+    this.habilitaForm()
   }
 
   public atualizaNumero(numero: string) {
@@ -52,6 +52,7 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
       this.numeroValido = false
     }
     console.log(this.numero)
+    this.habilitaForm()
   }
 
   public atualizaComplemento(complemento: string) {
@@ -61,6 +62,7 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
       this.complementoValido = true
     }
     console.log(this.complemento)
+    this.habilitaForm()
   }
 
   public atualizaFormaPagamento(formaPagamento: string) {
@@ -72,5 +74,18 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
       this.formaPagamentoValido = false
     }
     console.log(this.formaPagamento)
+    this.habilitaForm()
+  }
+
+  public habilitaForm(): void {
+    if(this.enderecoValido === true &&
+       this.numeroValido === true &&
+       this.formaPagamentoValido === true)
+      {
+        this.formEstado = ''
+      } else {
+        this.formEstado = 'disabled'
+      }
+
   }
 }
