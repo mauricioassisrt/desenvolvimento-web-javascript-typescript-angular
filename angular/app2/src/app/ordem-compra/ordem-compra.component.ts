@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {OfertaService} from '../services/oferta.service';
 import 'rxjs/Rx'
+import { OrdemCompraService } from 'app/services/ordem-compra.service';
+import { Pedido } from 'shared/pedido.model';
 @Component({
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
   styleUrls: ['./ordem-compra.component.css'],
-  providers: [OfertaService]
+  providers: [OrdemCompraService]
 })
 export class OrdemCompraComponent implements OnInit, OnDestroy {
 
@@ -22,11 +24,11 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
   public complementoEstadoPrimitivo: boolean = true
   public formaPagamentoEstadoPrimitivo: boolean = true
   public formEstado: string = 'disabled'
-
-  constructor() {}
+  public pedido: Pedido = new Pedido('', '', '', '')
+  constructor(private ordemCompraService: OrdemCompraService) {}
 
   ngOnInit() {
-
+    //console.log(this.ordemCompraService.efetivarCompra())
   }
 
   ngOnDestroy() {
@@ -87,5 +89,13 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
         this.formEstado = 'disabled'
       }
 
+  }
+
+  public confirmarCompra(): void {
+    this.pedido.complemento = this.complemento
+    this.pedido.endereco = this.endereco
+    this.pedido.numero = this.numero
+    this.pedido.formaPagamento = this.formaPagamento
+    this.ordemCompraService.efetivarCompra(this.pedido)
   }
 }
