@@ -9,6 +9,11 @@ import 'rxjs/Rx'
 })
 export class OrdemCompraComponent implements OnInit, OnDestroy {
 
+  public endereco: string = ''
+  public numero: string = ''
+  public complemento: string = ''
+  public formaPagamento: string = ''
+
   constructor() {}
 
   ngOnInit() {
@@ -16,5 +21,27 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+  }
+  public atualizaEndereco(endereco: string) {
+    this.endereco = endereco
+    console.log(this.endereco)
+  }
+
+  public atualizaNumero(numero: string) {
+    this.numero = numero
+
+    console.log(this.numero)
+  }
+
+  public atualizaComplemento(complemento: string) {
+    this.complemento = complemento
+
+    console.log(this.complemento)
+  }
+
+  public atualizaFormaPagamento(formaPagamento: string) {
+    this.formaPagamento = formaPagamento
+
+    console.log(this.formaPagamento)
   }
 }
