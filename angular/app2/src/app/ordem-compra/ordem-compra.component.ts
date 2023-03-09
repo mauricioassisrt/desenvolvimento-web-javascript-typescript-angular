@@ -1,15 +1,15 @@
+import { CarrinhoService } from 'app/services/carrinho.service';
 import { Pedido } from './../../shared/pedido.model';
 import { OrdemCompraService } from 'app/services/ordem-compra.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import CarrinhoService from 'app/services/carrinho.service';
 
 
 @Component({
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
   styleUrls: ['./ordem-compra.component.css'],
-  providers: [ OrdemCompraService, CarrinhoService ]
+  providers: [ OrdemCompraService,  ]
 })
 export class OrdemCompraComponent implements OnInit {
 
