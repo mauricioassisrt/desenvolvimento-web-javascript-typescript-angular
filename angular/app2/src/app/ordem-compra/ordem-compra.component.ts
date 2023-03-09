@@ -11,6 +11,7 @@ import { Pedido } from 'shared/pedido.model';
 })
 export class OrdemCompraComponent implements OnInit, OnDestroy {
 
+  public idPedidoCompra: number
   public endereco: string = ''
   public numero: string = ''
   public complemento: string = ''
@@ -97,6 +98,9 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
     this.pedido.numero = this.numero
     this.pedido.formaPagamento = this.formaPagamento
 
-    this.ordemCompraService.efetivarCompra(this.pedido).subscribe()
+    this.ordemCompraService.efetivarCompra(this.pedido)
+    .subscribe((idPedido: number) => {
+      this.idPedidoCompra = idPedido
+    })
   }
 }
