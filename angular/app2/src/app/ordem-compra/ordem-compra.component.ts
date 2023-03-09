@@ -96,6 +96,7 @@ export class OrdemCompraComponent implements OnInit, OnDestroy {
     this.pedido.endereco = this.endereco
     this.pedido.numero = this.numero
     this.pedido.formaPagamento = this.formaPagamento
-    this.ordemCompraService.efetivarCompra(this.pedido)
+
+    this.ordemCompraService.efetivarCompra(this.pedido).subscribe()
   }
 }
