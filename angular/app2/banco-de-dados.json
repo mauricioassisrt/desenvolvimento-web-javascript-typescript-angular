@@ -227,6 +227,20 @@
       "complemento": "asdas",
       "formaPagamento": "dinheiro",
       "id": 6
+    },
+    {
+      "endereco": "Teste",
+      "numero": "23",
+      "complemento": "asda",
+      "formaPagamento": "dinheiro",
+      "id": 7
+    },
+    {
+      "endereco": "Teste",
+      "numero": "123",
+      "complemento": "123123",
+      "formaPagamento": "dinheiro",
+      "id": 8
     }
   ]
 }
