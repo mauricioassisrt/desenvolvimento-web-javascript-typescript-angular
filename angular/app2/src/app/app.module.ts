@@ -16,7 +16,7 @@ import { OndeFicaComponent } from './ofertas/onde-fica/onde-fica.component';
 import {OfertaComponent} from "./ofertas/oferta.component";
 import {DescricaoReduzidaPipe} from "./util/descricao.reduzida.pipe";
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
-import { FormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
