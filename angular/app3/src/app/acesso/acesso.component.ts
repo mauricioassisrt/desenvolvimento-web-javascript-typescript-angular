@@ -48,4 +48,11 @@ export class AcessoComponent implements OnInit {
     public exibirPainel(event: string): void {
         this.cadastro = event === 'cadastro' ? true : false;
     }
+    public inicioDaAnimacao(): void{
+        console.log("inicio animacao")
+    }
+
+    public fimDaAnimacao(): void{
+        console.log("inicio animacao")
+    }
 }
