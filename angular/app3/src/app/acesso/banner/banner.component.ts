@@ -35,7 +35,7 @@ export class BannerComponent implements OnInit {
 
     public logicaRotacao(): void {
         let idX: number
-        console.log(this.imagens)
+     
         for (let i: number =0; i<=4; i++) {
             if(this.imagens[i].estado === 'visivel') {
                 this.imagens[i].estado = 'escondido'
