@@ -16,6 +16,7 @@ export class AppComponent implements OnInit{
       projectId: "jta-instagram-clone-dc621",
       storageBucket: "jta-instagram-clone-dc621.appspot.com",
       messagingSenderId: "974214815029",
+      databaseURL:"https://jta-instagram-clone-dc621-default-rtdb.firebaseio.com",
       appId: "1:974214815029:web:e96407bfd219e5d2a4c07c",
       measurementId: "G-31MQLQ8HXQ"
     };
