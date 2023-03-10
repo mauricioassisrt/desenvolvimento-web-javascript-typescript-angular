@@ -2,9 +2,9 @@ import {Usuario} from './usuario.model';
 import * as firebase from 'firebase';
 
 export class AutenticacaoService {
-    public cadastrarUsuario(usuario: Usuario): void {
+    public cadastrarUsuario(usuario: Usuario): Promise<any> {
 
-        firebase.auth().createUserWithEmailAndPassword(
+        return firebase.auth().createUserWithEmailAndPassword(
             usuario.email, usuario.senha
         ).then((resposta: any) => {
             delete usuario.senha;
@@ -13,6 +13,7 @@ export class AutenticacaoService {
         }).catch((error: Error) => {
             console.log(error);
         });
+
     }
 
     public autenticar(email: string, senha: string): void {
