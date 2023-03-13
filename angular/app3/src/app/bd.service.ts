@@ -9,7 +9,7 @@ export class Bd {
 
     public publicar(publicacao: any): void {
 
-        firebase.database().ref(`publicacoes/${btoa(publicacao.email)}}`)
+        firebase.database().ref(`publicacoes/${btoa(publicacao.email)}`)
             .push({titulo: publicacao.titulo})
             .then((resposta: any) => {
                 let nomeImagem = resposta.key;
@@ -28,8 +28,15 @@ export class Bd {
                         () => {
                             this.progress.status = 'concluido';
                         });
-
             });
+    }
 
+    public consultarPublicacoes(emailUsuario: string): any {
+        console.log(emailUsuario)
+        firebase.database().ref(`publicacoes/${btoa(emailUsuario)}`)
+            .once('value')
+            .then((snapshot: any) => {
+                console.log(snapshot.val());
+            });
     }
 }
