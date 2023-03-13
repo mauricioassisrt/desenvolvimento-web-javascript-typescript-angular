@@ -33,29 +33,35 @@ export class Bd {
 
     public consultarPublicacoes(emailUsuario: string): Promise<any> {
         return new Promise((resolve, reject) => {
-            console.log(emailUsuario);
+
             firebase.database().ref(`publicacoes/${btoa(emailUsuario)}`)
+                .orderByKey()
                 .once('value')
                 .then((snapshot: any) => {
                     let publicacoes: Array<any> = [];
                     snapshot.forEach((childSnapshot: any) => {
                         let publicacao = childSnapshot.val();
-                        firebase.storage().ref()
-                            .child(`imagens/${childSnapshot.key}`)
-                            .getDownloadURL()
-                            .then((url: string) => {
-                                publicacao.url_imagem = url;
-                                firebase.database().ref(`usuario_detalhe/${btoa(emailUsuario)}`)
-                                    .once('value')
-                                    .then((snapshot: any) => {
-                                        publicacao.nome_usuario = snapshot.val().nome_usuario;
-                                        publicacoes.push(publicacao);
-                                    });
-                            });
+                        publicacao.key = childSnapshot.key;
+                        publicacoes.push(publicacao);
                     });
-                    resolve(publicacoes)
+                    // resolve(publicacoes)
+                    return publicacoes.reverse();
+                }).then((publicacoes: any) => {
+                publicacoes.forEach((publicacao) => {
+                    firebase.storage().ref()
+                        .child(`imagens/${publicacao.key}`)
+                        .getDownloadURL()
+                        .then((url: string) => {
+                            publicacao.url_imagem = url;
+                            firebase.database().ref(`usuario_detalhe/${btoa(emailUsuario)}`)
+                                .once('value')
+                                .then((snapshot: any) => {
+                                    publicacao.nome_usuario = snapshot.val().nome_usuario;
+                                });
+                        });
                 });
+                resolve(publicacoes)
+            });
         });
-
     }
 }

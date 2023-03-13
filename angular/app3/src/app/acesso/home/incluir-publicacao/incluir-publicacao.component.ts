@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Bd} from '../../../bd.service';
 import * as firebase from 'firebase';
@@ -13,10 +13,13 @@ import {Subject} from 'rxjs/Subject';
     styleUrls: ['./incluir-publicacao.component.css']
 })
 export class IncluirPublicaoComponent implements OnInit {
+
+    @Output() atualizarTimeLine: EventEmitter<any> = new EventEmitter<any>()
     public email: string;
     private imagem: any;
     public progressoPublicacao: string = 'pendente';
     public porcentagem: number;
+
     public formulario: FormGroup = new FormGroup({
         'titulo': new FormControl(null)
     });
@@ -53,6 +56,13 @@ export class IncluirPublicaoComponent implements OnInit {
                 console.log( this.porcentagem )
                 if (this.progresso.status === 'concluido') {
                     this.progressoPublicacao = 'concluido';
+                    /*
+                        do componnente filho após incluir
+                        ele chama dentro do template home(pai)
+                        o evento para um determinado metodo
+                        essa é a forma de passar via output
+                     */
+                    this.atualizarTimeLine.emit()
                     continua.next(false);
                 }
 
