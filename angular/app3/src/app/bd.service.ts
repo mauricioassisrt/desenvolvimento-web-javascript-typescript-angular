@@ -8,21 +8,28 @@ export class Bd {
     }
 
     public publicar(publicacao: any): void {
-        let nomeImagem = Date.now();
-        firebase.storage().ref().child(`imagens/${nomeImagem}`)
-            .put(publicacao.image)
-            .on(firebase.storage.TaskEvent.STATE_CHANGED,
-                (snapshot: any) => {
-                    this.progress.status = 'em andamento';
-                    this.progress.estado = snapshot;
-                    console.log('em andamento')
-                }, (error) => {
-                    this.progress.status = 'error';
-                },
-                () => {
-                    this.progress.status = 'concluido';
-                });
-        // firebase.database().ref(`publicacoes/${btoa(publicacao.email)}}`)
-        //     .push({titulo: publicacao.titulo})
+
+        firebase.database().ref(`publicacoes/${btoa(publicacao.email)}}`)
+            .push({titulo: publicacao.titulo})
+            .then((resposta: any) => {
+                let nomeImagem = resposta.key;
+
+                firebase.storage().ref()
+                    .child(`imagens/${nomeImagem}`)
+                    .put(publicacao.image)
+                    .on(firebase.storage.TaskEvent.STATE_CHANGED,
+                        (snapshot: any) => {
+                            this.progress.status = 'em andamento';
+                            this.progress.estado = snapshot;
+                            console.log('em andamento');
+                        }, (error) => {
+                            this.progress.status = 'error';
+                        },
+                        () => {
+                            this.progress.status = 'concluido';
+                        });
+
+            });
+
     }
 }

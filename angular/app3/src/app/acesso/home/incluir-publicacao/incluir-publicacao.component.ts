@@ -37,7 +37,7 @@ export class IncluirPublicaoComponent implements OnInit {
             image: this.imagem[0]
         });
 
-        let acompanhamentoUpload = Observable.interval(150);
+        let acompanhamentoUpload = Observable.interval(1000);
 
         let continua = new Subject();
 
