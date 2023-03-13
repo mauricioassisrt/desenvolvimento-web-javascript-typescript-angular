@@ -1,7 +1,12 @@
 import {CanActivate} from '@angular/router';
+import {Injectable} from '@angular/core';
+import {AutenticacaoService} from './acesso/autenticacao.service';
 
+@Injectable()
 export class AutenticacaoGuard implements  CanActivate{
+    constructor(private autenticacaoService: AutenticacaoService) {
+    }
     canActivate(): boolean {
-        return false
+        return this.autenticacaoService.autenticado()
     }
 }
