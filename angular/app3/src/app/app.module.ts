@@ -16,6 +16,7 @@ import {ROUTES} from './app.routes';
 import {AutenticacaoGuard} from './autenticacao-guard.service';
 import {IncluirPublicaoComponent} from './acesso/home/incluir-publicacao/incluir-publicacao.component';
 import {Bd} from './bd.service';
+import {Progresso} from './progresso.service';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,7 @@ import {Bd} from './bd.service';
         ReactiveFormsModule,
         RouterModule.forRoot(ROUTES)
     ],
-    providers: [AutenticacaoService, AutenticacaoGuard, Bd],
+    providers: [AutenticacaoService, AutenticacaoGuard, Bd, Progresso],
     bootstrap: [AppComponent]
 })
 export class AppModule {
