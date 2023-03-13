@@ -4,8 +4,9 @@ import {Bd} from '../../../bd.service';
 import * as firebase from 'firebase';
 import {Progresso} from '../../../progresso.service';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/Rx'
+import 'rxjs/Rx';
 import {Subject} from 'rxjs/Subject';
+
 @Component({
     selector: 'app-incluir-publicacao',
     templateUrl: './incluir-publicacao.component.html',
@@ -14,6 +15,8 @@ import {Subject} from 'rxjs/Subject';
 export class IncluirPublicaoComponent implements OnInit {
     public email: string;
     private imagem: any;
+    public progressoPublicacao: string = 'pendente';
+    public porcentagem: number;
     public formulario: FormGroup = new FormGroup({
         'titulo': new FormControl(null)
     });
@@ -34,17 +37,26 @@ export class IncluirPublicaoComponent implements OnInit {
             image: this.imagem[0]
         });
 
+        let acompanhamentoUpload = Observable.interval(150);
 
+        let continua = new Subject();
 
-        let acompanhamentoUpload = Observable.interval(1500);
-        let continua = new Subject()
-        continua.next(true)
-        acompanhamentoUpload.takeUntil(continua).subscribe(() => {
-            if(this.progresso.status==='concluido'){
-                continua.next(false)
-            }
+        continua.next(true);
 
-        });
+        acompanhamentoUpload
+            .takeUntil(continua)
+            .subscribe(() => {
+                console.log(this.progresso.status)
+                console.log(this.progresso.estado)
+                this.progressoPublicacao = 'andamento';
+                this.porcentagem = Math.round((this.progresso.estado.bytesTransferred / this.progresso.estado.totalBytes) * 100);
+                console.log( this.porcentagem )
+                if (this.progresso.status === 'concluido') {
+                    this.progressoPublicacao = 'concluido';
+                    continua.next(false);
+                }
+
+            });
     }
 
     public preparaImagemUpload(event: Event): void {
